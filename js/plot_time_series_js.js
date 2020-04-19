@@ -110,7 +110,7 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
 
     focus.append("rect")
         .attr("class", "tooltip")
-        .attr("width", 150)
+        .attr("width", 100)
         .attr("height", 50)
         .attr("x", 10)
         .attr("y", -22)
@@ -125,7 +125,7 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
     focus.append("text")
         .attr("x", 18)
         .attr("y", 18)
-        .text("Amount:");
+        .text("Count:");
 
     focus.append("text")
         .attr("class", "tooltip-total_confirmed")
