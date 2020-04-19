@@ -53,7 +53,7 @@
             },
             done: function(datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-                    var country_code = ISO3_to_ISO2(geography.id)
+                    var country_code = ISO3_to_ISO2(geography.id);
                     if (!["CG","LS","KP","TJ","TM","TF","FK","SS","undefined"].includes(country_code))
                         window.location.href = "plot_time_series_html.html?country_code="+country_code;
                     //alert(geography.properties.name);
