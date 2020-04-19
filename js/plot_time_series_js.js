@@ -110,7 +110,7 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
 
     focus.append("rect")
         .attr("class", "tooltip")
-        .attr("width", 100)
+        .attr("width", 150)
         .attr("height", 50)
         .attr("x", 10)
         .attr("y", -22)
