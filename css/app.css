@@ -1,0 +1,21 @@
+.header img {
+	float: left;
+}
+
+.header h1 {
+	position: relative;
+	left: 5px;
+	font-family: Roboto;
+	font-weight: 600;
+	color:#333333;
+
+}
+
+.header span{
+	color: #999999;
+	font-weight: 300;
+}
+
+#container1{
+	margin: auto;
+}
