@@ -66,7 +66,7 @@ var tomorrow = new Date();
 tomorrow.setDate(new Date().getDate()+1);
 date_str = tomorrow.getFullYear().toString()+"-"+(tomorrow.getMonth() + 1).toString().padStart(2,"0")+"-"+tomorrow.getDate().toString().padStart(2,"0");
 
-d3.json("http://api.coronatracker.com/v3/analytics/trend/country?countryCode="+country_code+"&startDate=2019-04-15&endDate="+date_str, function(error, data_) {
+d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+country_code+"&startDate=2019-04-15&endDate="+date_str, function(error, data_) {
     //error handling
     if (error) throw error;
 

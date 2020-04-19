@@ -1,4 +1,4 @@
-    var url = "http://api.coronatracker.com/v3/stats/worldometer/country";
+    var url = "https://api.coronatracker.com/v3/stats/worldometer/country";
     var dataset = {};
 
 
