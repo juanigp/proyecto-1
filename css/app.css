@@ -1,4 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,300italic,600,600italic,700,700italic,900,900italic,300italic,300,100italic,100);
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;600&display=swap');
+
+body{ 
+	font-family: 'Baloo Bhaina 2';
+}
 
 .header img {
 	float: left;
@@ -6,19 +11,38 @@
 
 .header h1 {
 	position: relative;
-	top: 5px;
 	left: 5px;
-	font-family: 'Roboto';
 	font-weight: 600;
 	color:#333333;
-
 }
 
 .header span{
 	color: #999999;
-	font-weight: 300;
+	font-weight: 400;
+}
+
+.mapa{
+	margin: auto;
+	width: 1200px; 
+	height: 900px; 
+	position: relative;
 }
 
 #container1{
-	margin: auto;
+	width: 1200px;
+	height: 800px; 
+}
+
+.no_data_color_box{
+	width:15px;
+	height:15px;
+	background: #888888;
+	font-size: 
+}
+
+
+.bottom_info{
+	color:#555555;
+	font-size: small;
+
 }
