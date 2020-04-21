@@ -5,14 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
         <link rel="stylesheet" type="text/css" href="css/app.css">
         <link rel="stylesheet" type="text/css" href="css/plot_time_series_style.css">
-        <title>Country statistics</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <title>coviz: Country statistics</title>
     </head>
     
     <body>
-
-    	<h2 id="myText"></h2>
+    	<div class = "header">
+    		<h1 id="country_name"></h1>
+    		<span>Evolution of cases over time</span>	
+    	</div>
+    	
     	<div class= options2>
-	        <input type='radio' name='radio' id='radio1' checked="checked" onclick="return update_graphic(StatsEnum.TOTAL)" />
+	        <input type='radio' name='radio' id='radio1' checked="checked" autocomplete='on' onclick="return update_graphic(StatsEnum.TOTAL)" />
 	        <label for='radio1'>Total</label>
 
 	        <input type='radio' name='radio' id='radio2' onclick="return update_graphic(StatsEnum.ACTIVE)" />
@@ -23,9 +27,11 @@
 
 	        <input type='radio' name='radio'  id='radio4' onclick="return update_graphic(StatsEnum.RECOVERED)" />
 	        <label for='radio4'>Recovered</label>
-
 		</div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+       
         <script src="js/plot_time_series_js.js"></script>
+        <br>
+        <button type="button" class = 'back_to_map_button'><a class = 'back_to_map_link' href="index.html">Back to map</a></button> 
+        
     </body>
 </html>

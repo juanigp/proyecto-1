@@ -1,16 +1,25 @@
 body {
-    font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Arial";
+    font-size: 10px;
+    
+    text-align: center;
 }
 
-.axis path,
-.axis line {
+.header{
+    margin-bottom:50px;
+}
+.header h1{
+    font-size: 40px;
+}
+
+.header span{
+    font-size: 25px;
+}
+
+.axis path, .axis line {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
-}
-
-.x.axis path {
-    display: none;
 }
 
 .line {
@@ -40,31 +49,6 @@ body {
 .tooltip-date, .tooltip-likes {
     font-weight: bold;
 }
-/*
-button {
-    display: inline-block;
-    
-    width: 120px;
-    padding: 0.75rem 1rem;
-    border: 0;
-    border-radius: 0.2rem;
-    background-color: #1fa3ec;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -webkit-font-smoothing: antialiased;
-}
-
-
-button:focus {  
-  background: #999999;
-}
-*/
 
 input {
     visibility:hidden;
@@ -74,12 +58,12 @@ label {
     cursor: pointer;
     display: inline-block;
     width: 120px;
-    text-align: center;
+    text-align: center; 
     /*padding: 0.75rem 1rem;*/
     border: 0;
     border-radius: 0.2rem;
     background-color: #1fa3ec;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
@@ -91,4 +75,18 @@ label {
 }
 input:checked + label{
     background: #999999;
+}
+
+.back_to_map_button {
+    margin-top: 20px;
+    border: 0;
+    border-radius: 0.2rem;
+    background-color: #1fa3ec;   
+    padding-top: 2px;
+    padding-bottom: 2px; 
+}
+
+.back_to_map_link {
+    color: #ffffff;
+    text-decoration: none;
 }
