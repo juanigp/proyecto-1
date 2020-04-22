@@ -1,7 +1,6 @@
 body {
     font-family: "Arial";
     font-size: 10px;
-    
     text-align: center;
 }
 
@@ -10,6 +9,7 @@ body {
 }
 .header h1{
     font-size: 40px;
+    margin-bottom: auto;
 }
 
 .header span{

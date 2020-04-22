@@ -1,0 +1,22 @@
+countries with no covid data
+congo CG 
+lesotho LS
+north korea KP
+tajikistan TJ
+turkmenistan TM
+french southern territories TF
+
+countries with data but api without country code
+falkland islands (fk)
+south sudan (ss)
+
+countries without iso
+somaliland
+
+kosovo: has country code, has data, but d3 has not associated the country code with the map
+
+["CG","LS","KP","TJ","TM","TF","FK","SS","undefined"]
+
+cambiar tooltip
+data por dia
+arreglar el error en la fecha

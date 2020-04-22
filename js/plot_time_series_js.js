@@ -106,12 +106,11 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
         .attr("d", line);
 
     var focus = svg.append("g")
-        .attr("class", "focus")
-        .style("display", "none");
+        .attr("class", "focus");
 
     focus.append("circle")
         .attr("r", 5);
-
+    
     focus.append("rect")
         .attr("class", "tooltip")
         .attr("width", 100)
@@ -120,7 +119,7 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
         .attr("y", -22)
         .attr("rx", 4)
         .attr("ry", 4);
-
+    
     focus.append("text")
         .attr("class", "tooltip-date")
         .attr("x", 18)
@@ -129,10 +128,10 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
     focus.append("text")
         .attr("x", 18)
         .attr("y", 18)
-        .text("Count:");
+        .text("Cases: ");
 
     focus.append("text")
-        .attr("class", "tooltip-total_confirmed")
+        .attr("class", "tooltip-cases")
         .attr("x", 60)
         .attr("y", 18);
 
@@ -153,7 +152,7 @@ d3.json("https://api.coronatracker.com/v3/analytics/trend/country?countryCode="+
             d = x0 - d0.last_updated > d1.last_updated - x0 ? d1 : d0;
         focus.attr("transform", "translate(" + x_axis_scale(d.last_updated) + "," + y_axis_scale(value_to_plot(d, stat_to_plot)) + ")");
         focus.select(".tooltip-date").text(dateFormatter(d.last_updated));
-        focus.select(".tooltip-total_confirmed").text(formatValue(value_to_plot(d, stat_to_plot)));
+        focus.select(".tooltip-cases").text(formatValue(value_to_plot(d, stat_to_plot)));
     }
 });
 
