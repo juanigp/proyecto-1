@@ -20,3 +20,13 @@ kosovo: has country code, has data, but d3 has not associated the country code w
 cambiar tooltip
 data por dia
 arreglar el error en la fecha
+colormap
+zoom
+
+tanto la fecha como la escala de tiempo se crean en el time zone local
+a la escala se le entra con hora tambien, pero el tooltip solo muestra el dia por lo que puede ser confuso
+
+
+Al disminuir Vdc, el valor de Vo que marca la transicion de la zona III a la zona II va a disminuir Vo = Vdc-Vz (Vz = 4v con el modelo usado en LTSpice). Ver la figura AJAJAJS 
+También va a disminuir el valor de Vo que marca la transición de la zona IV a la zona V, Vo = Vd+Vdc (Vd = 0.7v con el modelo usado en LTSpice). Ver figura ASDASD
+Si Vdc+Vd disminuye a menos que Vz entonces el diodo D2 entrará en conducción directa antes que D1 se prenda como Zener, por lo que se podrá ver un cambio en la función transferencia. Ver JASJDAJSD
