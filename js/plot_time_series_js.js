@@ -37,7 +37,6 @@ function fetch_data_and_plot(){
             });
 
             data_ = data_.filter(function(d,i){ if( i !== data_.length - 1)  return d.last_updated.getDate() !== data_[i+1].last_updated.getDate(); else return true});
-            //data_ = data_.filter(function(d, i){ if( i!== 0) return is_valid_entry(data_[i-1], d); else return true});
             data = data_;
             //differential data
             data_diff = differential_data(data);
@@ -50,14 +49,6 @@ function fetch_data_and_plot(){
         }
     });
 }
-
-/*
-var is_valid_entry = function(a, b){
-    return ( (b.total_confirmed >= a.total_confirmed) 
-        && (b.total_deaths >= a.total_deaths) 
-        && (b.total_recovered >=a.total_recovered) )
-}
-*/
 
 var differential_data = function(data){
     var difference_between_entries = function(a,b){
@@ -229,8 +220,7 @@ function place_tooltip(element, focus, data, stat_to_plot, x_axis_scale, y_axis_
         d0 = data[i - 1],
         d1 = data[i],
         d = x0 - d0.last_updated > d1.last_updated - x0 ? d1 : d0;
-        i = data.indexOf(d);
-    focus.select(".tooltip").attr("width", 60 + 10*String(data[i].total_confirmed).length);
+    focus.select(".tooltip").attr("width", 60 + 10*String(value_to_plot(d, stat_to_plot)).length);
     focus.attr("transform", "translate(" + x_axis_scale(d.last_updated) + "," + y_axis_scale(value_to_plot(d, stat_to_plot)) + ")");
     focus.select(".tooltip-date").text(dateFormatterTooltip(d.last_updated));
     focus.select(".tooltip-cases").text(formatValue(value_to_plot(d, stat_to_plot)));
