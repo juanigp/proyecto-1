@@ -1,12 +1,9 @@
 body {
     font-family: "Arial";
-    font-size: 10px;
     text-align: center;
 }
 
-.header{
-    margin-bottom:50px;
-}
+
 .header h1{
     font-size: 40px;
     margin-bottom: auto;
@@ -14,6 +11,19 @@ body {
 
 .header span{
     font-size: 25px;
+}
+
+h2{
+    margin-top: 40px;
+    color:#444444;
+}
+
+.container{
+    font-size: 10px;
+}
+
+.svg{
+    margin-bottom: 40px;
 }
 
 .axis path, .axis line {
@@ -73,6 +83,7 @@ label {
     -webkit-appearance: none;
     -webkit-font-smoothing: antialiased;
 }
+
 input:checked + label{
     background: #999999;
 }
@@ -84,9 +95,42 @@ input:checked + label{
     background-color: #1fa3ec;   
     padding-top: 2px;
     padding-bottom: 2px; 
+    margin:20px;
 }
 
 .back_to_map_link {
     color: #ffffff;
     text-decoration: none;
+}
+
+.options{
+    margin-bottom: :25px;
+}
+
+.footer{
+    background-color: #eeeeee;
+    text-align: left;
+}
+
+.footer_column{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.footer_column p{
+    font-size: small;
+    color: #888888;
+    font-weight: 700;
+}
+
+.fa {
+  text-decoration: none;
+  color: #888888;
+  width: 50px;
+}
+
+.fa:hover {
+  opacity: 0.7;
 }

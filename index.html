@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
         <link rel="stylesheet" type="text/css" href="css/app.css">
         <title>coviz: easy covid19 data visualization</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/iso_mapping.js"></script>        
 
     </head>
     <body>
@@ -12,12 +17,6 @@
           <img src="map.png" alt="logo" width="50" height="50"> 
           <h1>coviz &nbsp &nbsp<span>easy covid19 data visualization</span></h1>
         </div>
-        
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
-        <script src="js/iso_mapping.js"></script>
         
         <div class = "mapa">
             <div id="container1">
@@ -27,13 +26,27 @@
             <span class="no_data_color_box">■ no data</span>
             
         </div>
+
+        <div class = "footer">
+            <div class = "footer_column">
+                <p>made by juanig</p>
+            </div>
+
+            <div class = "footer_column">
+                <div class = "social_media">
+                    <a href="https://github.com/juanigp" class="fa fa-github fa-2x"></a>
+                    <a href="https://www.linkedin.com/in/juan-pisula-970046146/" class="fa fa-linkedin fa-2x"></a>
+                    <a href="mailto:juanigpisula@gmail.com" class="fa fa-envelope fa-2x"></a>  
+                </div>
+            </div>
+
+            
+        </div>
         
-        <div class = "bottom_info">
-            <p>
-                Icon made by <a href="https://www.flaticon.com/authors/ultimatearm" title="ultimatearm">ultimatearm</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-            </p>
-        </div> 
 
 
     </body>
+
 </html>
+
+            

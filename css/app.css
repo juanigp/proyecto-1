@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;600&display=swap');
 
+body{
+	margin: 0;
+	overflow-x: hidden;
+}
+
 .header img {
 	float: left;
 }
@@ -20,7 +25,7 @@
 .mapa{
 	margin: auto;
 	width: 1200px; 
-	height: 900px; 
+	height: 850px; 
 	position: relative;
 }
 
@@ -33,11 +38,31 @@
 	width:15px;
 	height:15px;
 	color: #888888;
-	font-size: 
 }
 
+.footer{
+	background-color: #eeeeee;
+}
 
-.bottom_info{
-	color:#555555;
+.footer_column{
+	display: inline-block;
+	width: 33%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.footer_column p{
 	font-size: small;
+	color: #888888;
+	font-weight: 700;
+}
+
+.fa {
+  text-decoration: none;
+  color: #888888;
+  width: 50px;
+}
+
+.fa:hover {
+  opacity: 0.7;
 }
