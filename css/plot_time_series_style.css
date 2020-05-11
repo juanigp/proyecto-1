@@ -1,51 +1,136 @@
-body {
-    font-family: "Arial";
+.modal {
+    font-family: 'Arial';
     text-align: center;
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
 
+.modal_content {
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 50px 60px;
+    width: 700px;
+    border: 1px solid #9b9c9d;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
 
-.header h1{
+.modal_content.light {
+    background: white;
+}
+.modal_content.dark {
+    background: #333333;
+}
+.modal_content h1 {
     font-size: 40px;
-    margin-bottom: auto;
 }
 
-.header span{
+.modal_content.light h1 {
+    color: #222222;
+}
+
+.modal_content.dark h1 {
+    color: #f5f5f5;
+}
+
+.modal_content h2 {
+    margin-top: 30px;
+}
+
+.modal_content.light h2 {
+    color: #444444;
+}
+
+.modal_content.dark h2 {
+    color: #cccccc;
+}
+
+.modal_header span {
     font-size: 25px;
 }
-
-h2{
-    margin-top: 40px;
-    color:#444444;
-}
-
-.container{
+.graph_container {
     font-size: 10px;
 }
 
-.svg{
+.svg {
     margin-bottom: 40px;
+    overflow: visible;
 }
 
-.axis path, .axis line {
+/**/
+.axis path,
+.axis line {
     fill: none;
-    stroke: #000;
+    stroke: black;
     shape-rendering: crispEdges;
+}
+
+.axis.light path,
+.axis.light line {
+    stroke: black;
+}
+
+.axis.dark path,
+.axis.dark line {
+    stroke: white;
 }
 
 .line {
     fill: none;
-    stroke: steelblue;
     stroke-width: 1.5px;
 }
 
-.overlay {
-    fill: none;
+.line.light {
+    stroke: steelblue;
+}
+
+.line.dark {
+    stroke: crimson;
+}
+
+.background_rect {
     pointer-events: all;
 }
 
-.focus circle {
+.background_rect.light {
+    fill: white;
+}
+
+.background_rect.dark {
+    fill: #333333;
+}
+
+.bar.light,
+.focus.light circle {
     fill: steelblue;
 }
+
+.bar.dark,
+.focus.dark circle {
+    fill: crimson;
+}
+
+.tick.light text {
+    fill: black;
+}
+
+.tick.dark text {
+    fill: white;
+}
+
+/**/
 
 .focus text {
     font-size: 14px;
@@ -53,84 +138,62 @@ h2{
 
 .tooltip {
     fill: white;
-    stroke: #000;
+    stroke: black;
 }
 
-.tooltip-date, .tooltip-likes {
+.tooltip-date,
+.tooltip-likes {
     font-weight: bold;
 }
 
 input {
-    visibility:hidden;
+    visibility: hidden;
 }
 
 label {
     cursor: pointer;
     display: inline-block;
     width: 120px;
-    text-align: center; 
+    text-align: center;
     /*padding: 0.75rem 1rem;*/
     border: 0;
     border-radius: 0.2rem;
-    background-color: #1fa3ec;
-    color: #ffffff;
+    background-color: steelblue;
+    color: white;
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5;
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     cursor: pointer;
     -webkit-appearance: none;
     -webkit-font-smoothing: antialiased;
 }
 
-input:checked + label{
+input:checked + label {
     background: #999999;
 }
 
-.back_to_map_button {
+#back_to_map_button {
     margin-top: 20px;
     border: 0;
     border-radius: 0.2rem;
-    background-color: #1fa3ec;   
+    background-color: transparent;
     padding-top: 2px;
-    padding-bottom: 2px; 
-    margin:20px;
+    padding-bottom: 2px;
+    margin: 20px;
 }
 
-.back_to_map_link {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.options{
-    margin-bottom: :25px;
-}
-
-.footer{
-    background-color: #eeeeee;
-    text-align: left;
-}
-
-.footer_column{
-    display: inline-block;
-    width: 33%;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.footer_column p{
-    font-size: small;
-    color: #888888;
-    font-weight: 700;
+.options {
+    margin-bottom: 25px;
 }
 
 .fa {
-  text-decoration: none;
-  color: #888888;
-  width: 50px;
+    text-decoration: none;
+    color: #888888;
+    width: 50px;
 }
 
 .fa:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }

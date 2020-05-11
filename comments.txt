@@ -25,6 +25,7 @@ zoom
 
 tanto la fecha como la escala de tiempo se crean en el time zone local
 a la escala se le entra con hora tambien, pero el tooltip solo muestra el dia por lo que puede ser confuso
+pueda que la api tenga errores: ejemplo numero total de casos no monotonamente creciente
 
 
                         Icon made by <a href="https://www.flaticon.com/authors/ultimatearm" title="ultimatearm">ultimatearm</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

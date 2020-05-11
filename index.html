@@ -1,52 +1,171 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
-        <link rel="stylesheet" type="text/css" href="css/app.css">
-        <title>coviz: easy covid19 data visualization</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <link rel="stylesheet" href="css/plot_time_series_style.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="js/iso_mapping.js"></script>        
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="js/plot_time_series_js.js"></script>
+        <script src="js/iso_mapping.js"></script>
+
+        <title>coviz: easy covid19 data visualization</title>
     </head>
     <body>
-        <div class="header">
-          <img src="map.png" alt="logo" width="50" height="50"> 
-          <h1>coviz &nbsp &nbsp<span>easy covid19 data visualization</span></h1>
-        </div>
-        
-        <div class = "mapa">
-            <div id="container1">
-                <script src="js/app.js"></script>
-            </div>
-
-            <span class="no_data_color_box">■ no data</span>
-            
-        </div>
-
-        <div class = "footer">
-            <div class = "footer_column">
-                <p>made by juanig</p>
-            </div>
-
-            <div class = "footer_column">
-                <div class = "social_media">
-                    <a href="https://github.com/juanigp" class="fa fa-github fa-2x"></a>
-                    <a href="https://www.linkedin.com/in/juan-pisula-970046146/" class="fa fa-linkedin fa-2x"></a>
-                    <a href="mailto:juanigpisula@gmail.com" class="fa fa-envelope fa-2x"></a>  
+        <div class="body_wrapper">
+            <div class="header">
+                <div class="header_div">
+                    <img src="map.png" alt="logo" width="50" height="50" />
+                </div>
+                <div class="header_div">
+                    <h1>
+                        coviz &nbsp &nbsp<span
+                            >easy covid19 data visualization</span
+                        >
+                    </h1>
+                </div>
+                <div class="header_div" id="theme_switch">
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="theme_checkbox"
+                            autocomplete="off"
+                            onclick="toggle_theme()"
+                        />
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
 
-            
+            <div class="map_div">
+                <div id="svg_container">
+                    <script src="js/app.js"></script>
+                </div>
+
+                <span class="no_data_color_box">■ no data</span>
+            </div>
         </div>
-        
 
+        <div class="footer" id="footer">
+            <div class="footer_column">
+                <p>made by juanig</p>
+            </div>
 
+            <div class="footer_column">
+                <div class="social_media">
+                    <a
+                        href="https://github.com/juanigp"
+                        class="fa fa-github fa-2x"
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/juan-pisula-970046146/"
+                        class="fa fa-linkedin fa-2x"
+                    ></a>
+                    <a
+                        href="mailto:juanigpisula@gmail.com"
+                        class="fa fa-envelope fa-2x"
+                    ></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="country_info_modal">
+            <!-- Modal content -->
+            <div class="modal_content" id="modal_content">
+                <div class="modal_header">
+                    <h1 id="country_name"></h1>
+                    <span>Evolution of cases over time</span>
+                </div>
+
+                <div class="graph_div" id="graph_div_acu">
+                    <h2>Cummulative data</h2>
+                    <div class="options acu">
+                        <input
+                            type="radio"
+                            name="radio_acu"
+                            id="radio_acu_total"
+                            onclick="return make_acu_graph(StatsEnum.TOTAL)"
+                        />
+                        <label for="radio_acu_total">Total</label>
+
+                        <input
+                            type="radio"
+                            name="radio_acu"
+                            id="radio_acu_active"
+                            onclick="return make_acu_graph(StatsEnum.ACTIVE)"
+                        />
+                        <label for="radio_acu_active">Active</label>
+
+                        <input
+                            type="radio"
+                            name="radio_acu"
+                            id="radio_acu_deaths"
+                            onclick="return make_acu_graph(StatsEnum.DEATHS)"
+                        />
+                        <label for="radio_acu_deaths">Deaths</label>
+
+                        <input
+                            type="radio"
+                            name="radio_acu"
+                            id="radio_acu_recovered"
+                            onclick="return make_acu_graph(StatsEnum.RECOVERED)"
+                        />
+                        <label for="radio_acu_recovered">Recovered</label>
+                    </div>
+
+                    <div class="graph_container" id="container_acu"></div>
+                </div>
+
+                <div class="graph_div" id="graph_div_diff">
+                    <h2>Daily new cases</h2>
+                    <div class="options daily">
+                        <input
+                            type="radio"
+                            name="radio_diff"
+                            id="radio_diff_total"
+                            onclick="return make_diff_graph(StatsEnum.TOTAL)"
+                        />
+                        <label for="radio_diff_total">Confirmed</label>
+
+                        <input
+                            type="radio"
+                            name="radio_diff"
+                            id="radio_diff_deaths"
+                            onclick="return make_diff_graph(StatsEnum.DEATHS)"
+                        />
+                        <label for="radio_diff_deaths">Deaths</label>
+
+                        <input
+                            type="radio"
+                            name="radio_diff"
+                            id="radio_diff_recovered"
+                            onclick="return make_diff_graph(StatsEnum.RECOVERED)"
+                        />
+                        <label for="radio_diff_recovered">Recovered</label>
+                    </div>
+
+                    <div class="graph_container" id="container_diff"></div>
+                </div>
+
+                <button type="button" id="back_to_map_button">
+                    <label>Back to map</label>
+                </button>
+            </div>
+        </div>
     </body>
-
 </html>
-
-            
