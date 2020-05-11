@@ -1,25 +1,19 @@
+/* Modal window */
 .modal {
-    font-family: 'Arial';
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
 }
 
 .modal_content {
     margin: 15% auto;
-    /* 15% from the top and centered */
     padding: 50px 60px;
     width: 700px;
     border: 1px solid #9b9c9d;
@@ -60,16 +54,13 @@
 .modal_header span {
     font-size: 25px;
 }
-.graph_container {
-    font-size: 10px;
-}
 
+/* Graph */
 .svg {
     margin-bottom: 40px;
     overflow: visible;
 }
 
-/**/
 .axis path,
 .axis line {
     fill: none;
@@ -121,7 +112,9 @@
 .focus.dark circle {
     fill: crimson;
 }
-
+.tick {
+    font-size: 10px;
+}
 .tick.light text {
     fill: black;
 }
@@ -129,8 +122,6 @@
 .tick.dark text {
     fill: white;
 }
-
-/**/
 
 .focus text {
     font-size: 14px;
@@ -141,9 +132,13 @@
     stroke: black;
 }
 
-.tooltip-date,
-.tooltip-likes {
+.tooltip-date {
     font-weight: bold;
+}
+
+/* Buttons */
+.options {
+    margin-bottom: 25px;
 }
 
 input {
@@ -151,11 +146,11 @@ input {
 }
 
 label {
+    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     display: inline-block;
     width: 120px;
     text-align: center;
-    /*padding: 0.75rem 1rem;*/
     border: 0;
     border-radius: 0.2rem;
     background-color: steelblue;
@@ -164,10 +159,6 @@ label {
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -webkit-font-smoothing: antialiased;
 }
 
 input:checked + label {
@@ -181,19 +172,4 @@ input:checked + label {
     background-color: transparent;
     padding-top: 2px;
     padding-bottom: 2px;
-    margin: 20px;
-}
-
-.options {
-    margin-bottom: 25px;
-}
-
-.fa {
-    text-decoration: none;
-    color: #888888;
-    width: 50px;
-}
-
-.fa:hover {
-    opacity: 0.7;
 }

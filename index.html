@@ -6,27 +6,30 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
-        <link rel="stylesheet" href="css/plot_time_series_style.css" />
-
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/app.css" />
+        <link rel="stylesheet" href="css/modal_window.css" />
+        <!-- Font awesome CSS-->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
-
+        <!-- Libraries-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-        <script src="js/plot_time_series_js.js"></script>
+        <!-- My JS -->
+        <script src="js/app.js"></script>
+        <script src="js/modal_window_funcs.js"></script>
         <script src="js/iso_mapping.js"></script>
 
         <title>coviz: easy covid19 data visualization</title>
     </head>
+
     <body>
         <div class="body_wrapper">
+            <!-- Header -->
             <div class="header">
                 <div class="header_div">
                     <img src="map.png" alt="logo" width="50" height="50" />
@@ -51,15 +54,14 @@
                 </div>
             </div>
 
+            <!-- Map -->
             <div class="map_div">
-                <div id="svg_container">
-                    <script src="js/app.js"></script>
-                </div>
-
+                <div id="svg_container"></div>
                 <span class="no_data_color_box">■ no data</span>
             </div>
         </div>
 
+        <!-- Footer -->
         <div class="footer" id="footer">
             <div class="footer_column">
                 <p>made by juanig</p>
@@ -83,9 +85,8 @@
             </div>
         </div>
 
-        <!-- The Modal -->
+        <!-- Modal -->
         <div class="modal" id="country_info_modal">
-            <!-- Modal content -->
             <div class="modal_content" id="modal_content">
                 <div class="modal_header">
                     <h1 id="country_name"></h1>

@@ -4,6 +4,7 @@ const StatsEnum = { TOTAL: 0, ACTIVE: 1, DEATHS: 2, RECOVERED: 3 };
 var data = {};
 var data_diff = {};
 
+//function called when a (valid) country is clicked
 var show_country_info = function (geo) {
     var country_code = ISO3_to_ISO2(geo.id);
     country_url = make_country_url(country_code);
@@ -20,6 +21,7 @@ var show_country_info = function (geo) {
     });
 };
 
+//make the api url for the country
 var make_country_url = function (country_code) {
     //tomorrow's date
     var tomorrow = new Date();
@@ -32,7 +34,6 @@ var make_country_url = function (country_code) {
         '-' +
         tomorrow.getDate().toString().padStart(2, '0');
     //request the data from january 1st to tomorrow
-    //country_code = 'AR';
     var api_url =
         'https://api.coronatracker.com/v3/analytics/trend/country?countryCode=' +
         country_code +
@@ -41,8 +42,9 @@ var make_country_url = function (country_code) {
     return api_url;
 };
 
+//process the fetched data
 var process_country_data = function (data) {
-    //just change the last_updated field in the data
+    //change the last_updated field in the data
     data.forEach(function (d, i) {
         d.last_updated = new Date(d.last_updated);
         d.last_updated.setHours(0);
@@ -60,6 +62,7 @@ var process_country_data = function (data) {
     return data;
 };
 
+//calculate the differential data (used for the daily new cases)
 var differential_data = function (data) {
     var difference_between_entries = function (a, b) {
         out = {
@@ -79,37 +82,18 @@ var differential_data = function (data) {
     return data_diff;
 };
 
+//render the modal window
 var render_modal = function (country_name) {
     //country name in the html page
     document.getElementById('country_name').innerHTML = country_name;
     //start modal plotting total data
     document.getElementById('radio_acu_total').click();
     document.getElementById('radio_diff_total').click();
+    //show the modal
     var modal = document.getElementById('country_info_modal');
     modal.style.display = 'block';
     modal.scrollTop = 0;
 };
-
-function set_graph_theme(container, theme) {
-    d3.select(container)
-        .selectAll('.axis')
-        .attr('class', 'axis ' + theme);
-    d3.select(container)
-        .selectAll('.line')
-        .attr('class', 'line ' + theme);
-    d3.select(container)
-        .selectAll('.background_rect')
-        .attr('class', 'background_rect ' + theme);
-    d3.select(container)
-        .selectAll('.bar')
-        .attr('class', 'bar ' + theme);
-    d3.select(container)
-        .selectAll('.focus')
-        .attr('class', 'focus ' + theme);
-    d3.select(container)
-        .selectAll('.tick')
-        .attr('class', 'tick ' + theme);
-}
 
 //make the cummulative data chart
 var make_acu_graph = function (stat) {
@@ -129,6 +113,7 @@ var make_line_graph = function (container, data, stat) {
     d3.select(container).select('svg').remove();
     //the next function calls make the plot
     make_svg(container);
+    //make the scales functions that are used throughout the plotting
     axes_scales = make_axes_scales_funcs(container);
     x_axis_scale = axes_scales[0];
     y_axis_scale = axes_scales[1];
@@ -143,6 +128,7 @@ var make_bar_graph = function (container, data, stat) {
     d3.select(container).select('svg').remove();
     //the next function calls make the plot
     make_svg(container);
+    //make the scales functions that are used throughout the plotting
     axes_scales = make_axes_scales_funcs(container);
     x_axis_scale = axes_scales[0];
     y_axis_scale = axes_scales[1];
@@ -305,7 +291,14 @@ var add_tooltip = function (container, data, stat, x_axis_scale, y_axis_scale) {
 };
 
 //callback function of the mousemove event, used to place the tooltip
-function place_tooltip(element, focus, data, stat, x_axis_scale, y_axis_scale) {
+var place_tooltip = function (
+    element,
+    focus,
+    data,
+    stat,
+    x_axis_scale,
+    y_axis_scale
+) {
     var bisectDate = d3.bisector(function (d) {
             return d.last_updated;
         }).left,
@@ -329,4 +322,26 @@ function place_tooltip(element, focus, data, stat, x_axis_scale, y_axis_scale) {
     );
     focus.select('.tooltip-date').text(dateFormatterTooltip(d.last_updated));
     focus.select('.tooltip-cases').text(formatValue(value_to_plot(d, stat)));
-}
+};
+
+//function to set the theme of the graph inside container
+var set_graph_theme = function (container, theme) {
+    d3.select(container)
+        .selectAll('.axis')
+        .attr('class', 'axis ' + theme);
+    d3.select(container)
+        .selectAll('.line')
+        .attr('class', 'line ' + theme);
+    d3.select(container)
+        .selectAll('.background_rect')
+        .attr('class', 'background_rect ' + theme);
+    d3.select(container)
+        .selectAll('.bar')
+        .attr('class', 'bar ' + theme);
+    d3.select(container)
+        .selectAll('.focus')
+        .attr('class', 'focus ' + theme);
+    d3.select(container)
+        .selectAll('.tick')
+        .attr('class', 'tick ' + theme);
+};
