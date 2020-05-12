@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;600&display=swap');
+
+/* Body */
+body {
+    margin: 0;
+    transition: all 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body.light {
+    background-color: white;
+}
+
+body.dark {
+    background-color: #333333;
+}
+
+.body_wrapper {
+    width: 1250px;
+    min-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 600;
+    font-family: 'Baloo Bhaina 2';
+    color: #333333;
+}
+
+/* Header */
+.header h1 {
+    left: 5px;
+    color: inherit;
+}
+
+body.light .header h1 {
+    color: #222222;
+}
+
+body.dark .header h1 {
+    color: #f5f5f5;
+}
+
+.header_div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+span {
+    color: #999999;
+    font-weight: 400;
+}
+
+#theme_switch {
+    margin-left: 500px;
+}
+
+/* Map */
+.map_div {
+    margin: auto;
+    width: 1200px;
+    height: 850px;
+}
+
+#svg_container {
+    position: relative;
+    height: 800px;
+}
+
+.no_data_color_box {
+    color: #888888;
+}
+
+/* Footer */
+.footer {
+    background-color: #eeeeee;
+    box-shadow: 0px 1px 1px #4d4d4d;
+}
+.footer.light {
+    background-color: #eeeeee;
+}
+
+.footer.dark {
+    background-color: #252525;
+}
+
+.footer_column {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.footer_column p {
+    font-size: small;
+    color: #888888;
+    font-weight: 700;
+}
+
+.fa {
+    text-decoration: none;
+    color: #888888;
+    width: 50px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Theme switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: crimson;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
